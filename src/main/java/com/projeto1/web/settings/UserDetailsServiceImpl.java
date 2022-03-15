@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.projeto1.web.domain.User;
 import com.projeto1.web.repository.UserRepository;
 
+@Component
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Autowired

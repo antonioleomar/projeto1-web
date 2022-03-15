@@ -15,7 +15,7 @@ public class UserMapperConfig {
     }
 
     @Bean
-    public UserMapper coffeeMapper() {
+    public UserMapper userMapper() {
         return new UserMapper();
     }
 }

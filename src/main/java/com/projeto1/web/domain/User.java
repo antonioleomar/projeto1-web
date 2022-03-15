@@ -19,10 +19,8 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "users")
-@Data
 @Getter
 @Setter
-@NoArgsConstructor
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -37,38 +35,24 @@ public class User implements Serializable {
     
     @Column(name = "password")
     @JsonProperty
-    private String password;
+    private String password;      
     
-    @Column(name = "nome")
-	@JsonProperty
-	private String nome;
     
-    @Column(name = "email", unique = true)
-	@JsonProperty
-	private String email;
-    
-    @Column(name="matricula", unique = true)
-	@JsonProperty
-	private Long matricula;
-    
-    @Column(name = "formacao")
-	@JsonProperty
-	private String formacao;
-    
-    public User() {}    
-
+    public User() {}
+	
+   
 	public String getUsername() {
 		return username;
 	}
-
+    
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
+    
 	public String getPassword() {
 		return password;
 	}
-
+    
 	public void setPassword(String password) {
 		this.password = password;
 	}

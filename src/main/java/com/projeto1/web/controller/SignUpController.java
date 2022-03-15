@@ -12,10 +12,14 @@ import com.projeto1.web.dto.UserDTO;
 import com.projeto1.web.mapper.UserMapper;
 import com.projeto1.web.services.UserService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 //APENAS PARA CADASTRAR USUÁRIOS
 
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE + "; charset=utf-8")
+@Api(value = "Sign Up")
 public class SignUpController {
 	
 	@Autowired
@@ -25,6 +29,7 @@ public class SignUpController {
     private UserMapper userMapper;
 
     @PostMapping("/signup")
+    @ApiOperation(value = "Sign Up da aplicação")
     public void signUp(@RequestBody UserDTO userDTO){
         userService.signUpUser(userMapper.convertFromUserDTO(userDTO));
     }

@@ -14,6 +14,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 //CONFIGURAÇÃO DE SEGURANÇA
 
+@EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter  {
 
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -22,13 +23,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter  {
     //ROTAS QUE NÃO PRECISAM DE AUTORIZAÇÃO
     private static final String[] AUTH_WHITELIST = {
         "/v2/api-docs",
-        "/signup",
+        "/signup/**",
         "/h2-console/**",
-        "/swagger-resources",
+        "/swagger-resources/**",
         "/swagger-resources/**",
         "/configuration/ui",
         "/configuration/security",
-        "/swagger-ui.html",
+        "/swagger-ui.html/**",
         "/webjars/**"
     };
 
