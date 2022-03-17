@@ -35,7 +35,11 @@ public class User implements Serializable {
     
     @Column(name = "password")
     @JsonProperty
-    private String password;      
+    private String password; 
+    
+    @Column(name = "ÉProfessor")
+    @JsonProperty
+    private boolean eProfessor; 
     
     
     public User() {}
@@ -56,4 +60,15 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
+	public boolean iseProfessor() {
+		return eProfessor;
+	}
+
+
+	public void seteProfessor(boolean eProfessor) {
+		this.eProfessor = eProfessor;
+	}	
+	
 }

@@ -20,7 +20,10 @@ public class UserDTO {
     private String username;    
     
     @JsonProperty
-    private String password;
+    private String password;    
+    
+    @JsonProperty
+    private boolean eProfessor; 
 
 	public String getUsername() {
 		return username;
@@ -37,4 +40,12 @@ public class UserDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public boolean iseProfessor() {
+		return eProfessor;
+	}
+
+	public void seteProfessor(boolean eProfessor) {
+		this.eProfessor = eProfessor;
+	}	
 }

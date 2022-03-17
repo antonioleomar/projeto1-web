@@ -1,7 +1,9 @@
 package com.projeto1.web.settings;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -15,9 +17,12 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 //CONFIGURAÇÃO DE SEGURANÇA
 
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter  {
 
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
     private UserDetailsService userDetailsService;
 
     //ROTAS QUE NÃO PRECISAM DE AUTORIZAÇÃO
@@ -43,7 +48,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter  {
         httpSecurity.cors().and().csrf().disable()
             .authorizeRequests()
             .antMatchers(AUTH_WHITELIST).permitAll()
-            .anyRequest().authenticated()
+            .anyRequest().authenticated() //TODAS AS REQUISIÇÕES TEM QUE SER AUTENTICADAS
             .and().addFilter(new AuthenticationFilter(authenticationManager()))
             .addFilter(new AuthorizationFilter(authenticationManager()))
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

@@ -9,6 +9,10 @@ public class PasswordEncoderConfig {
 	
 	@Bean
     BCryptPasswordEncoder getEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();        
     }
+	// PARA CRIPTOGRAFAR USAMOS O ALGORITMO BCRYPT
+	//BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    //System.out.println(getEncoder().encode("12345"));
+	//Resposta: igjoigomdvndfoinofnomo
 }
