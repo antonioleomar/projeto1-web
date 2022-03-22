@@ -4,18 +4,19 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.projeto1.web.mapper.UserMapper;
+import com.projeto1.web.mapper.ProfessorMapper;
+
 
 @Configuration
-public class UserMapperConfig {
+public class ProfessorMapperConfig {
 	
 	@Bean
-    public ModelMapper modelMapper5() {
+    public ModelMapper modelMapper2() {
         return new ModelMapper();
     }
 
     @Bean
-    public UserMapper userMapper() {
-        return new UserMapper();
+    public ProfessorMapper professorMapper() {
+        return new ProfessorMapper();
     }
 }

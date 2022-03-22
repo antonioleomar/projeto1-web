@@ -4,18 +4,20 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.projeto1.web.mapper.ProjetoMapper;
+import com.projeto1.web.mapper.TurmaMapper;
 import com.projeto1.web.mapper.UserMapper;
 
 @Configuration
-public class UserMapperConfig {
+public class TurmaMapperConfig {
 	
 	@Bean
-    public ModelMapper modelMapper5() {
+    public ModelMapper modelMapper4() {
         return new ModelMapper();
     }
 
     @Bean
-    public UserMapper userMapper() {
-        return new UserMapper();
+    public TurmaMapper turmaMapper() {
+        return new TurmaMapper();
     }
 }

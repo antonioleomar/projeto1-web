@@ -43,7 +43,29 @@ public class Professor {
 	
 	@OneToOne(mappedBy = "professor")
 	private Projeto projeto;
+	
+	public Integer getMatricula() {
+		return this.matricula;
+	}
 
-	public Professor() {}	
+	public String getNome() {
+		return this.nome;
+	}
+	
+	public String getFormacao() {
+		return this.formacao;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	public Professor() {}
 
+	public Professor(Integer matricula, String nome, String formacao, String email) {
+		super();
+		this.matricula = matricula;
+		this.nome = nome;
+		this.formacao = formacao;
+		this.email = email;	
+	}
 }

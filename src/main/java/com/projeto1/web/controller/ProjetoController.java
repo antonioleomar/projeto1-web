@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto1.web.domain.Projeto;
 import com.projeto1.web.repository.ProjetoRepository;
+import com.projeto1.web.services.ProjetoService;
 import com.projeto1.web.services.UsuarioAutenticado;
 
 import io.swagger.annotations.Api;
@@ -29,7 +30,7 @@ import io.swagger.annotations.ApiOperation;
 public class ProjetoController {
 	
 	@Autowired
-	private ProjetoRepository projetoRepository;
+	private ProjetoService projetoService;
 	
 	@Autowired
 	private UsuarioAutenticado usuarioAutenticado;
@@ -37,38 +38,38 @@ public class ProjetoController {
 	@GetMapping
 	@ApiOperation(value = "Lista todos os projetos")
 	public List<Projeto> getProjeto(){
-		return projetoRepository.findAll();
+		return projetoService.getProjeto();
 	}
 	
 	@GetMapping("{codigo}")
 	@ApiOperation(value = "Lista projetos por ID")
 	public Optional<Projeto> getProjetoById(@PathVariable Long codigo){		
-		return projetoRepository.findById(codigo);
+		return projetoService.getProjetoById(codigo);
 	}
 	
 	@GetMapping("/team/{codigo}")
 	@ApiOperation(value = "Lista projetos por ID")
 	public List<Projeto> findByTeam(@PathVariable Long codigo){		
-		return projetoRepository.findByTeam(codigo);
+		return projetoService.findByTeam(codigo);
 	}
 	
 	@PostMapping
 	@ApiOperation(value = "criando um projeto")
 	@PreAuthorize("hasRole('ROLE_PROFESSOR')")
 	public Projeto createProjeto(@RequestBody Projeto projeto) {	
-		return projetoRepository.save(projeto);
+		return projetoService.createProjeto(projeto);
 	}
 	
 	@PutMapping("/{codigo}")	
 	@ApiOperation(value = "Put de um projeto")
 	public Projeto updateProjeto(@PathVariable("codigo") Long codigo, @RequestBody Projeto projeto) {
-		return projetoRepository.save(projeto);
+		return projetoService.updateProjeto(codigo, projeto);
 	}
 	
 	@DeleteMapping("/{codigo}")
 	@ApiOperation(value = "Deletar um projeto por código")
 	public void deleteProjeto(@PathVariable Long codigo) {
-		projetoRepository.delete(projetoRepository.findById(codigo).get());
+		projetoService.deleteProjeto(codigo);
 	}
 
 }
