@@ -17,5 +17,7 @@ public class AlunoDTOBuilder {
 	public AlunoDTO toAlunoDTO() {
 		return new AlunoDTO(matricula, nome);
 	}
+	
+	public AlunoDTOBuilder() {}
 
 }
