@@ -20,5 +20,14 @@ public class ProjetoBuilder {
 	public Projeto toProjeto() {
 		return new Projeto(codigo, nome, descricao);
 	}
+	
+	public ProjetoBuilder() {}
+
+	public ProjetoBuilder(Long codigo, String nome, String descricao) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.descricao = descricao;
+	}	
 
 }

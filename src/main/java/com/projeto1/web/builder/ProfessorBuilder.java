@@ -24,4 +24,14 @@ public class ProfessorBuilder {
 		return new Professor(matricula, nome, formacao, email);
 	}
 
+	public ProfessorBuilder() {}
+
+	public ProfessorBuilder(Integer matricula, String nome, String formacao, String email) {	
+		this.matricula = matricula;
+		this.nome = nome;
+		this.formacao = formacao;
+		this.email = email;
+	}
+	
+	
 }
