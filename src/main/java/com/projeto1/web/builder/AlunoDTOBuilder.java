@@ -20,4 +20,9 @@ public class AlunoDTOBuilder {
 	
 	public AlunoDTOBuilder() {}
 
+	public AlunoDTOBuilder(Long matricula, String nome) {	
+		this.matricula = matricula;
+		this.nome = nome;
+	}
+
 }
