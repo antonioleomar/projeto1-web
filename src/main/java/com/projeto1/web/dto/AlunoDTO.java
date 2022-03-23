@@ -17,6 +17,7 @@ public class AlunoDTO {
 	@JsonProperty
 	private String nome;	
 		
+	public AlunoDTO() {}
 
 	public AlunoDTO(Long matricula, String nome) {		
 		this.matricula = matricula;
