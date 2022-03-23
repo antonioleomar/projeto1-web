@@ -35,7 +35,7 @@ public class ProfessorServiceTest {
 
 	@BeforeEach
 	public void initMocks() {
-		MockitoAnnotations.initMocks(this);
+		MockitoAnnotations.openMocks(this);
 	}
 	
 	@Test

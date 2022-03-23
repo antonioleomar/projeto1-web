@@ -41,7 +41,7 @@ public class AlunoServiceTest {
 
 	@BeforeEach
 	public void initMocks() {
-		MockitoAnnotations.initMocks(this);
+		MockitoAnnotations.openMocks(this);
 	}
 
 	// Quando um aluno for informado então ele será criado
